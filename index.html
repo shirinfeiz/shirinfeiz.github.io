@@ -1,1 +1,524 @@
-Hello Worrld
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shirin Feiz, Ph.D. — AI Researcher & Human-Machine Interaction</title>
+  <meta name="description" content="Shirin Feiz is an AI researcher at Meta specializing in agentic AI, AR/VR interactions, and human-machine interfaces." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F9F7F4; --bg2: #F2EFE9; --ink: #1A1814;
+      --ink-soft: #5A5650; --ink-mute: #9A958F;
+      --accent: #C4703B; --accent-light: #E8C9B2;
+      --line: #DDD9D2; --white: #FFFFFF;
+      --radius: 3px; --max: 860px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(249,247,244,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding: 0 2rem; }
+    .nav-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 58px; }
+    .nav-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    #hero { padding-top: 110px; padding-bottom: 80px; max-width: var(--max); margin: 0 auto; padding-left: 2rem; padding-right: 2rem; display: grid; grid-template-columns: 1fr 210px; gap: 3rem; align-items: start; }
+    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; font-weight: 500; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 1.2rem; }
+    .hero-bio { font-size: 1.02rem; color: var(--ink-soft); line-height: 1.8; max-width: 560px; margin-bottom: 1.4rem; }
+
+    .hero-contact { display: flex; flex-wrap: wrap; gap: 0.8rem 1.6rem; margin-bottom: 1.5rem; align-items: center; }
+    .hero-contact-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--ink-mute); text-decoration: none; transition: color 0.2s; }
+    .hero-contact-item:hover { color: var(--accent); }
+
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.55rem 1.2rem; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; border-radius: var(--radius); text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary:hover { background: #a85c2f; }
+
+    .hero-photo-wrap { justify-self: end; align-self: start; margin-top: 1.5rem; }
+    .hero-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center top; border: 5px solid var(--bg2); box-shadow: 0 8px 32px rgba(0,0,0,0.12); display: block; }
+
+    /* SECTIONS */
+    section { border-top: 1px solid var(--line); padding: 64px 2rem; }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 0.4rem; font-weight: 500; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; line-height: 1.2; margin-bottom: 2rem; }
+
+    /* LOGOS */
+    .org-logo-wrap { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; background: var(--white); border: 1px solid var(--line); overflow: hidden; }
+    .org-logo-wrap img { width: 20px; height: 20px; object-fit: contain; }
+    .org-logo-initials { width: 26px; height: 26px; border-radius: 5px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; letter-spacing: 0; color: white; }
+
+    /* EXPERIENCE */
+    .job { display: grid; grid-template-columns: 140px 1fr; gap: 1rem 2rem; padding: 2rem 0; border-bottom: 1px solid var(--line); }
+    .job:last-child { border-bottom: none; }
+    .job-meta { color: var(--ink-mute); font-size: 0.82rem; line-height: 1.6; padding-top: 0.2rem; }
+    .job-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.45rem; }
+    .job-company { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+    .job-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; line-height: 1.25; margin-bottom: 0.65rem; }
+    .job-desc { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.75; }
+    .job-desc ul { padding-left: 1.2rem; }
+    .job-desc li { margin-bottom: 0.3rem; }
+
+    /* STATS */
+    .stats-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: 3rem; }
+    .stat { background: var(--bg); padding: 1.5rem 1.8rem; text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--ink-mute); text-transform: uppercase; }
+
+    /* PUBLICATIONS */
+    .pub { display: grid; grid-template-columns: 36px 1fr; gap: 0.5rem 1.2rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line); align-items: start; }
+    .pub:last-child { border-bottom: none; }
+    .pub-num { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; color: var(--ink-mute); padding-top: 0.15rem; text-align: right; }
+    .pub-venue { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.22rem; }
+    .pub-title { font-size: 0.96rem; font-weight: 500; color: var(--ink); line-height: 1.5; margin-bottom: 0.22rem; }
+    .pub-authors { font-size: 0.82rem; color: var(--ink-mute); line-height: 1.5; }
+    .pub-authors strong { color: var(--ink-soft); font-weight: 500; }
+    .co-first { font-size: 0.73rem; color: var(--accent); font-style: italic; font-weight: 400; margin-left: 0.3rem; }
+
+    /* EDUCATION */
+    .edu-item { display: grid; grid-template-columns: 140px 1fr; gap: 0.5rem 2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--line); align-items: start; }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-year { font-size: 0.82rem; color: var(--ink-mute); padding-top: 0.25rem; }
+    .edu-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem; }
+    .edu-degree { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 500; }
+    .edu-school { font-size: 0.87rem; color: var(--ink-soft); }
+    .edu-note { font-size: 0.78rem; color: var(--accent); margin-top: 0.2rem; font-style: italic; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 0.5rem; }
+    .skill-group-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 0.6rem; font-weight: 500; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { background: var(--bg2); border: 1px solid var(--line); border-radius: 100px; padding: 0.25rem 0.85rem; font-size: 0.8rem; color: var(--ink-soft); }
+
+    /* RECOGNITION */
+    .award { display: grid; grid-template-columns: 64px 1fr; gap: 0.5rem 1.5rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .award:last-child { border-bottom: none; }
+    .award-year { font-size: 0.8rem; color: var(--ink-mute); }
+    .award-text { font-size: 0.9rem; color: var(--ink-soft); }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .contact-intro { font-size: 1rem; color: var(--ink-soft); line-height: 1.8; }
+    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 0.2rem; }
+    .contact-item a { color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; border-bottom: 1px solid var(--line); transition: color 0.2s, border-color 0.2s; }
+    .contact-item a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--line); padding: 2rem; text-align: center; }
+    .footer-inner { max-width: var(--max); margin: 0 auto; font-size: 0.8rem; color: var(--ink-mute); }
+
+    /* ANIMATION */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 680px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-photo-wrap { order: -1; justify-self: start; margin-top: 0; }
+      .hero-photo { width: 110px; height: 110px; }
+      .job, .edu-item, .award { grid-template-columns: 1fr; }
+      .job-meta, .edu-year, .award-year { font-size: 0.78rem; }
+      .stats-strip, .skills-grid, .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#hero">Shirin Feiz</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#recognition">Recognition</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div>
+    <p class="hero-eyebrow">Research Scientist · AI &amp; Human-Machine Interaction</p>
+    <h1>Shirin Feiz, Ph.D.</h1>
+    <p class="hero-bio">
+      I work at the intersection of artificial intelligence and human experience. At Meta, I design and evaluate agentic AI workflows and novel interaction paradigms for AR/VR wearables. My work spans LLM-powered systems, gaze and gesture interfaces, and the accessibility of emerging technologies — always with real people at the center.
+    </p>
+
+    <div class="hero-contact">
+      <a class="hero-contact-item" id="hero-email" href="#">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        shirin.feiz.d [at] gmail [dot] com
+      </a>
+      <a class="hero-contact-item" href="https://www.linkedin.com/in/shirin-feiz-a17a2333/" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="hero-contact-item" href="https://scholar.google.com/citations?user=uaz9F-YAAAAJ&hl=en" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        Google Scholar
+      </a>
+    </div>
+
+    <a class="btn btn-primary" id="hero-cta" href="#">Get in Touch</a>
+  </div>
+
+  <div class="hero-photo-wrap">
+    <img
+      class="hero-photo"
+      src="https://lh3.googleusercontent.com/sitesv/APaQ0STQBMO1jEqRm4Z9V0qJCSpJmPQsKZPeb2j1KP3zXjviXgGTz12LRO6zMlWTUHB93XCIAlS8P0j65JyFy-bEdaMpAXgQA-pZgefoSoA22QS6F7PRYR2AyWqOJXGlf3PkN2ij7O2RGG6yjA_UiXBzNYJDtgss6Iwq42qmmMu0E1TPCMKQBOB8LAMddDWU0IgYJ0g6AQ3AXf0kWi6543eHNzPjhJr9wIG-g1h7=w1280"
+      alt="Shirin Feiz"
+      id="hero-img"
+    />
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner fade-in">
+    <p class="section-label">Work</p>
+    <h2>Experience</h2>
+
+    <!-- Meta -->
+    <div class="job">
+      <div class="job-meta">2024 — Present<br/>New York, NY</div>
+      <div>
+        <div class="job-header">
+          <span class="org-logo-wrap">
+            <svg width="20" height="20" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 15.3C19.7 12.5 21.8 10 24.5 10c4.5 0 6.5 4.5 6.5 10s-2 10-6.5 10c-2.7 0-4.8-2.5-6.5-5.3-1.7 2.8-3.8 5.3-6.5 5.3C7 30 5 25.5 5 20s2-10 6.5-10c2.7 0 4.8 2.5 6.5 5.3z" fill="#0081FB"/>
+              <path d="M11.5 10C9 10 7.3 12.3 6.2 15.1 5.5 16.9 5 18.4 5 20s.5 3.1 1.2 4.9C7.3 27.7 9 30 11.5 30c2.7 0 4.8-2.5 6.5-5.3-1.5-2.5-2.9-5.3-3.9-7.2-.6-1.2-1.1-1.9-1.5-2.1-.1 0-.7-.4-1.1-.4z" fill="#0064E0"/>
+            </svg>
+          </span>
+          <span class="job-company">Meta</span>
+        </div>
+        <div class="job-title">Research Scientist</div>
+        <div class="job-desc"><ul>
+          <li>Design and implementation of agentic AI workflows in real-time systems for wearable AR/VR devices.</li>
+          <li>Research and development of novel interaction paradigms with LLM-powered AI agents.</li>
+          <li>Evaluation of human-AI integration models to improve experience on next-generation wearables.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- Apple ML Engineer -->
+    <div class="job">
+      <div class="job-meta">2022 — 2024<br/>Cupertino, CA</div>
+      <div>
+        <div class="job-header">
+          <span class="org-logo-wrap">
+            <svg width="16" height="19" viewBox="0 0 814 1000" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.8 136-317.5 270.8-317.5 96.5 0 159.1 63.4 202.1 63.4 41 0 112.6-67.6 219.8-67.6zm-18.7-167.2c-37.2 45.5-97.9 81.3-162.3 81.3-5.5 0-11-.5-16.5-1.2 1.3-53.4 29.1-109.3 68-145.3 42.6-39.8 109-68.7 168.5-70.3 1.2 6.1 1.8 12.2 1.8 18.9 0 51.7-22 102.2-59.5 116.6z"/></svg>
+          </span>
+          <span class="job-company">Apple</span>
+        </div>
+        <div class="job-title">Machine Learning Engineer — Vision Pro</div>
+        <div class="job-desc"><ul>
+          <li>Full-time member of the Human Interface Devices team, building core input systems for Apple Vision Pro.</li>
+          <li>Discovered novel methods for human-centered gaze and hand gesture interaction.</li>
+          <li>Delivered publicly acclaimed gaze and hand interaction features that contributed to strong launch reviews.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- Apple Intern -->
+    <div class="job">
+      <div class="job-meta">Summer 2021<br/>Cupertino, CA</div>
+      <div>
+        <div class="job-header">
+          <span class="org-logo-wrap">
+            <svg width="16" height="19" viewBox="0 0 814 1000" fill="#1d1d1f" xmlns="http://www.w3.org/2000/svg"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.8 136-317.5 270.8-317.5 96.5 0 159.1 63.4 202.1 63.4 41 0 112.6-67.6 219.8-67.6zm-18.7-167.2c-37.2 45.5-97.9 81.3-162.3 81.3-5.5 0-11-.5-16.5-1.2 1.3-53.4 29.1-109.3 68-145.3 42.6-39.8 109-68.7 168.5-70.3 1.2 6.1 1.8 12.2 1.8 18.9 0 51.7-22 102.2-59.5 116.6z"/></svg>
+          </span>
+          <span class="job-company">Apple</span>
+        </div>
+        <div class="job-title">AI/ML Research Intern</div>
+        <div class="job-desc"><ul>
+          <li>Built a React-based annotation interface used for large-scale data collection.</li>
+          <li>Developed PyTorch deep learning models to understand UI similarity from smartphone screenshots.</li>
+          <li>Research accepted at the 27th International Conference on Intelligent User Interfaces (IUI '22).</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- UiPath -->
+    <div class="job">
+      <div class="job-meta">Summer 2019<br/>Seattle, WA</div>
+      <div>
+        <div class="job-header">
+          <span class="org-logo-initials" style="background:#fa4616;">UI</span>
+          <span class="job-company">UiPath</span>
+        </div>
+        <div class="job-title">Research Intern</div>
+        <div class="job-desc"><ul>
+          <li>Developed a novel semi-supervised image clustering method and sequence analysis approach for understanding user action flows from screenshots.</li>
+          <li>Work resulted in a granted US patent: <em>Sequence Extraction Using Screenshot Images</em> (US 16/591,161).</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- Stony Brook -->
+    <div class="job">
+      <div class="job-meta">2018 — 2022<br/>Stony Brook, NY</div>
+      <div>
+        <div class="job-header">
+          <span class="org-logo-initials" style="background:#cc0000;">SB</span>
+          <span class="job-company">Stony Brook University</span>
+        </div>
+        <div class="job-title">Graduate Research Assistant</div>
+        <div class="job-desc"><ul>
+          <li>R&amp;D on assistive technologies for blind and visually impaired users, combining machine learning and computer vision.</li>
+          <li>Published at CHI, IUI, MobileHCI, and other top HCI venues.</li>
+          <li>Mentored six MS students through advanced graduate projects (CSE 523/524).</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="stats-strip">
+      <div class="stat"><div class="stat-num">191</div><div class="stat-label">Citations</div></div>
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">h-index</div></div>
+      <div class="stat"><div class="stat-num">40+</div><div class="stat-label">UX Studies</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner fade-in">
+    <p class="section-label">Publications</p>
+    <h2>Selected Research</h2>
+    <p style="font-size:0.88rem;color:var(--ink-mute);margin-top:-1.4rem;margin-bottom:2rem;">Full list on <a href="https://scholar.google.com/citations?user=uaz9F-YAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);">Google Scholar</a>.</p>
+
+    <div>
+      <div class="pub">
+        <div class="pub-num">1</div>
+        <div>
+          <div class="pub-venue">MobiCom 2023</div>
+          <div class="pub-title">AccessWear: Making Smartphone Applications Accessible to Blind Users</div>
+          <div class="pub-authors">Prerna Khanna, <strong>Shirin Feiz</strong>, Jian Xu, IV Ramakrishnan, Shubham Jain, Xiaojun Bi, Aruna Balasubramanian</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">2</div>
+        <div>
+          <div class="pub-venue">IUI '22</div>
+          <div class="pub-title">Understanding Screen Relationships from Screenshots of Smartphone Applications</div>
+          <div class="pub-authors"><strong>Shirin Feiz</strong>, Jason Wu, Xiaoyi Zhang, Amanda Swearngin, Titus Barik, Jeffrey Nichols</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">3</div>
+        <div>
+          <div class="pub-venue">Graphics Interface 2021</div>
+          <div class="pub-title">Towards Enabling Blind People to Fill Out Paper Forms with a Wearable Smartphone Assistant</div>
+          <div class="pub-authors"><strong>Shirin Feiz</strong>, Anatoliy Borodin, Xiaojun Bi, IV Ramakrishnan</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">4</div>
+        <div>
+          <div class="pub-venue">MobileHCI '21</div>
+          <div class="pub-title">Modeling Gliding-based Target Selection for Blind Touchscreen Users</div>
+          <div class="pub-authors">Yu-Jung Ko, Aini Putkonen, Ali Selman Aydin, <strong>Shirin Feiz</strong>, Yuheng Wang, Vikas Ashok, IV Ramakrishnan, Antti Oulasvirta, Xiaojun Bi</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">5</div>
+        <div>
+          <div class="pub-venue">IUI '20</div>
+          <div class="pub-title">Towards Making Videos Accessible for Low Vision Screen Magnifier Users <span class="co-first">(co-first author)</span></div>
+          <div class="pub-authors"><strong>Shirin Feiz</strong>, Ali Selman Aydin, Vikas Ashok, IV Ramakrishnan</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">6</div>
+        <div>
+          <div class="pub-venue">IUI '20</div>
+          <div class="pub-title">SaIL: Saliency-Driven Injection of ARIA Landmarks <span class="co-first">(co-first author)</span></div>
+          <div class="pub-authors"><strong>Shirin Feiz</strong>, Ali Selman Aydin, Vikas Ashok, IV Ramakrishnan</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">7</div>
+        <div>
+          <div class="pub-venue">CHI '19</div>
+          <div class="pub-title">Towards Enabling Blind People to Independently Write on Printed Forms <span class="co-first">(co-first author)</span></div>
+          <div class="pub-authors"><strong>Shirin Feiz</strong>, Syed Masum Billah, Vikas Ashok, Roy Shilkrot, IV Ramakrishnan</div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-num">8</div>
+        <div>
+          <div class="pub-venue">W4A '19 · Best Paper Nominee</div>
+          <div class="pub-title">Exploring Feasibility of Wrist Gestures for Non-Visual Interaction with Wearables</div>
+          <div class="pub-authors"><strong>Shirin Feiz</strong>, IV Ramakrishnan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner fade-in">
+    <p class="section-label">Background</p>
+    <h2>Education</h2>
+    <div>
+      <div class="edu-item">
+        <div class="edu-year">2017 – 2022</div>
+        <div>
+          <div class="edu-header">
+            <span class="org-logo-initials" style="background:#cc0000;">SB</span>
+            <div class="edu-degree">Ph.D., Computer Science</div>
+          </div>
+          <div class="edu-school">Stony Brook University, USA</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2014 – 2016</div>
+        <div>
+          <div class="edu-header">
+            <span class="org-logo-initials" style="background:#003087;">SUT</span>
+            <div class="edu-degree">M.Sc., Computer Engineering — Artificial Intelligence</div>
+          </div>
+          <div class="edu-school">Sharif University of Technology, Iran</div>
+          <div class="edu-note">Graduated with honors · Ranked 3rd among AI M.Sc. graduates</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2010 – 2014</div>
+        <div>
+          <div class="edu-header">
+            <span class="org-logo-initials" style="background:#006400;">FUM</span>
+            <div class="edu-degree">B.Sc., Computer Engineering — Software Engineering</div>
+          </div>
+          <div class="edu-school">Ferdowsi University of Mashhad, Iran</div>
+          <div class="edu-note">Graduated with honors · Ranked 1st in CE class · Distinguished Graduate of the Year</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:3.5rem;">
+      <p class="section-label">Expertise</p>
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div>
+          <p class="skill-group-label">Research Areas</p>
+          <div class="skill-tags">
+            <span class="tag">Agentic AI / LLMs</span>
+            <span class="tag">Human-Machine Interaction</span>
+            <span class="tag">AR / VR Wearables</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag">Gaze &amp; Gesture Interaction</span>
+            <span class="tag">System Evaluation</span>
+            <span class="tag">User Experience</span>
+          </div>
+        </div>
+        <div>
+          <p class="skill-group-label">Technical</p>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">React / Web</span>
+            <span class="tag">iOS / Swift</span>
+            <span class="tag">Android</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section id="recognition">
+  <div class="section-inner fade-in">
+    <p class="section-label">Honors</p>
+    <h2>Recognition</h2>
+    <div>
+      <div class="award"><div class="award-year">2019</div><div class="award-text">Intuit Student Travel Grant Award</div></div>
+      <div class="award"><div class="award-year">2019</div><div class="award-text">Best Poster — Vision, Graphics &amp; HCI, Graduate Research Day, Stony Brook University</div></div>
+      <div class="award"><div class="award-year">2017</div><div class="award-text">Merits Fellowship Award, Stony Brook University ($5,000)</div></div>
+      <div class="award"><div class="award-year">2016</div><div class="award-text">Ranked 3rd Among M.Sc. Graduates in AI, Sharif University of Technology</div></div>
+      <div class="award"><div class="award-year">2014</div><div class="award-text">Honorary Admission to Sharif University of Technology M.Sc. (top 8 in the nation)</div></div>
+      <div class="award"><div class="award-year">2014</div><div class="award-text">Distinguished Graduate of the Year Across All Disciplines, Ferdowsi University</div></div>
+      <div class="award"><div class="award-year">2014</div><div class="award-text">Ranked 1st Among All Computer Engineering Graduates (by GPA), Ferdowsi University</div></div>
+      <div class="award"><div class="award-year">2010–13</div><div class="award-text">Distinguished Student of the Year (three times), CE Dept., Ferdowsi University</div></div>
+      <div class="award"><div class="award-year">2010</div><div class="award-text">Top 1% in the National University Entrance Exam (300,000+ participants)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner fade-in">
+    <p class="section-label">Let's Connect</p>
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <p class="contact-intro">I'm always open to discussing research collaborations, speaking opportunities, or ideas at the frontier of AI and human-computer interaction. Feel free to reach out.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-item-label">Email</div>
+          <a id="contact-email" href="#">shirin.feiz.d [at] gmail [dot] com</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/shirin-feiz-a17a2333/" target="_blank" rel="noopener">linkedin.com/in/shirin-feiz</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Google Scholar</div>
+          <a href="https://scholar.google.com/citations?user=uaz9F-YAAAAJ&hl=en" target="_blank" rel="noopener">View Publications →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">© 2026 Shirin Feiz · New York, NY</div>
+</footer>
+
+<script>
+  // Bot-safe email assembly
+  var e = atob('c2hpcmluLmZlaXouZEBnbWFpbC5jb20=');
+  document.getElementById('hero-email').href = 'mailto:' + e;
+  document.getElementById('hero-cta').href = 'mailto:' + e;
+  document.getElementById('contact-email').href = 'mailto:' + e;
+
+  // Photo fallback
+  var img = document.getElementById('hero-img');
+  img.onerror = function() {
+    var wrap = this.parentElement;
+    wrap.innerHTML = '<div style="width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,#E8C9B2,#C4703B);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:5px solid #F2EFE9;"><span style=\"font-family:\'Cormorant Garamond\',serif;font-size:3.5rem;color:white;font-weight:300;\">SF</span></div>';
+  };
+
+  // Fade-in on scroll
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+  // Active nav highlight
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function() {
+    var current = '';
+    sections.forEach(function(s) { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navLinks.forEach(function(a) { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : ''; });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
