@@ -79,9 +79,11 @@
     .pub-num { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 300; color: var(--ink-mute); padding-top: 0.15rem; text-align: right; }
     .pub-venue { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.22rem; }
     .pub-title { font-size: 0.96rem; font-weight: 500; color: var(--ink); line-height: 1.5; margin-bottom: 0.22rem; }
+    .pub-title a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color 0.2s, color 0.2s; }
+    .pub-title a:hover { color: var(--accent); border-color: var(--accent); }
     .pub-authors { font-size: 0.82rem; color: var(--ink-mute); line-height: 1.5; }
     .pub-authors strong { color: var(--ink-soft); font-weight: 500; }
-    .co-first { font-size: 0.73rem; color: var(--accent); font-style: italic; font-weight: 400; margin-left: 0.3rem; }
+    .co-first { font-size: 0.73rem; color: var(--ink-mute); font-style: italic; font-weight: 400; margin-left: 0.3rem; }
 
     /* EDUCATION */
     .edu-item { display: grid; grid-template-columns: 140px 1fr; gap: 0.5rem 2rem; padding: 1.6rem 0; border-bottom: 1px solid var(--line); align-items: start; }
@@ -162,7 +164,7 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
         shirin.feiz.d [at] gmail [dot] com
       </a>
-      <a class="hero-contact-item" href="https://www.linkedin.com/in/shirin-feiz-a17a2333/" target="_blank" rel="noopener">
+      <a class="hero-contact-item" href="https://www.linkedin.com/in/shirinfeiz/" target="_blank" rel="noopener">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
@@ -171,8 +173,6 @@
         Google Scholar
       </a>
     </div>
-
-    <a class="btn btn-primary" id="hero-cta" href="#">Get in Touch</a>
   </div>
 
   <div class="hero-photo-wrap">
@@ -245,8 +245,8 @@
         <div class="job-title">AI/ML Research Intern</div>
         <div class="job-desc"><ul>
           <li>Built a React-based annotation interface used for large-scale data collection.</li>
-          <li>Developed PyTorch deep learning models to understand UI similarity from smartphone screenshots.</li>
-          <li>Research accepted at the 27th International Conference on Intelligent User Interfaces (IUI '22).</li>
+          <li>Integrated deep learning models to understand UI similarity from smartphone screenshots.</li>
+          <li>Paper published in the <a href="https://dl.acm.org/doi/abs/10.1145/3490099.3511109" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);">27th International Conference on Intelligent User Interfaces (IUI '22)</a>.</li>
         </ul></div>
       </div>
     </div>
@@ -262,7 +262,7 @@
         <div class="job-title">Research Intern</div>
         <div class="job-desc"><ul>
           <li>Developed a novel semi-supervised image clustering method and sequence analysis approach for understanding user action flows from screenshots.</li>
-          <li>Work resulted in a granted US patent: <em>Sequence Extraction Using Screenshot Images</em> (US 16/591,161).</li>
+          <li>Work resulted in a granted US patent: <a href="https://patents.google.com/patent/US20210103767A1/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);"><em>Sequence Extraction Using Screenshot Images</em> (US 16/591,161)</a>.</li>
         </ul></div>
       </div>
     </div>
@@ -312,7 +312,7 @@
         <div class="pub-num">2</div>
         <div>
           <div class="pub-venue">IUI '22</div>
-          <div class="pub-title">Understanding Screen Relationships from Screenshots of Smartphone Applications</div>
+          <div class="pub-title"><a href="https://dl.acm.org/doi/abs/10.1145/3490099.3511109" target="_blank" rel="noopener">Understanding Screen Relationships from Screenshots of Smartphone Applications</a></div>
           <div class="pub-authors"><strong>Shirin Feiz</strong>, Jason Wu, Xiaoyi Zhang, Amanda Swearngin, Titus Barik, Jeffrey Nichols</div>
         </div>
       </div>
@@ -320,7 +320,7 @@
         <div class="pub-num">3</div>
         <div>
           <div class="pub-venue">Graphics Interface 2021</div>
-          <div class="pub-title">Towards Enabling Blind People to Fill Out Paper Forms with a Wearable Smartphone Assistant</div>
+          <div class="pub-title"><a href="https://openreview.net/pdf?id=l8jScx6ROAh" target="_blank" rel="noopener">Towards Enabling Blind People to Fill Out Paper Forms with a Wearable Smartphone Assistant</a></div>
           <div class="pub-authors"><strong>Shirin Feiz</strong>, Anatoliy Borodin, Xiaojun Bi, IV Ramakrishnan</div>
         </div>
       </div>
@@ -328,7 +328,7 @@
         <div class="pub-num">4</div>
         <div>
           <div class="pub-venue">MobileHCI '21</div>
-          <div class="pub-title">Modeling Gliding-based Target Selection for Blind Touchscreen Users</div>
+          <div class="pub-title"><a href="https://research.aalto.fi/files/74658708/ELEC_Ko_etal_Modeling_Gliding_Based_Target_Selection_MobileHCI_2021.pdf" target="_blank" rel="noopener">Modeling Gliding-based Target Selection for Blind Touchscreen Users</a></div>
           <div class="pub-authors">Yu-Jung Ko, Aini Putkonen, Ali Selman Aydin, <strong>Shirin Feiz</strong>, Yuheng Wang, Vikas Ashok, IV Ramakrishnan, Antti Oulasvirta, Xiaojun Bi</div>
         </div>
       </div>
@@ -336,31 +336,31 @@
         <div class="pub-num">5</div>
         <div>
           <div class="pub-venue">IUI '20</div>
-          <div class="pub-title">Towards Making Videos Accessible for Low Vision Screen Magnifier Users <span class="co-first">(co-first author)</span></div>
-          <div class="pub-authors"><strong>Shirin Feiz</strong>, Ali Selman Aydin, Vikas Ashok, IV Ramakrishnan</div>
+          <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3377325.3377494" target="_blank" rel="noopener">Towards Making Videos Accessible for Low Vision Screen Magnifier Users</a></div>
+          <div class="pub-authors"><strong>Shirin Feiz</strong>, Ali Selman Aydin, Vikas Ashok, IV Ramakrishnan <span class="co-first">(co-first author)</span></div>
         </div>
       </div>
       <div class="pub">
         <div class="pub-num">6</div>
         <div>
           <div class="pub-venue">IUI '20</div>
-          <div class="pub-title">SaIL: Saliency-Driven Injection of ARIA Landmarks <span class="co-first">(co-first author)</span></div>
-          <div class="pub-authors"><strong>Shirin Feiz</strong>, Ali Selman Aydin, Vikas Ashok, IV Ramakrishnan</div>
+          <div class="pub-title"><a href="https://dl.acm.org/doi/pdf/10.1145/3377325.3377540" target="_blank" rel="noopener">SaIL: Saliency-Driven Injection of ARIA Landmarks</a></div>
+          <div class="pub-authors"><strong>Shirin Feiz</strong>, Ali Selman Aydin, Vikas Ashok, IV Ramakrishnan <span class="co-first">(co-first author)</span></div>
         </div>
       </div>
       <div class="pub">
         <div class="pub-num">7</div>
         <div>
           <div class="pub-venue">CHI '19</div>
-          <div class="pub-title">Towards Enabling Blind People to Independently Write on Printed Forms <span class="co-first">(co-first author)</span></div>
-          <div class="pub-authors"><strong>Shirin Feiz</strong>, Syed Masum Billah, Vikas Ashok, Roy Shilkrot, IV Ramakrishnan</div>
+          <div class="pub-title"><a href="https://www.researchgate.net/profile/Syed-Masum-Billah/publication/330502287_Towards_Enabling_Blind_People_to_Independently_Write_on_Printed_Forms/links/5c5b06b845851582c3d2af0d/Towards-Enabling-Blind-People-to-Independently-Write-on-Printed-Forms.pdf" target="_blank" rel="noopener">Towards Enabling Blind People to Independently Write on Printed Forms</a></div>
+          <div class="pub-authors"><strong>Shirin Feiz</strong>, Syed Masum Billah, Vikas Ashok, Roy Shilkrot, IV Ramakrishnan <span class="co-first">(co-first author)</span></div>
         </div>
       </div>
       <div class="pub">
         <div class="pub-num">8</div>
         <div>
           <div class="pub-venue">W4A '19 · Best Paper Nominee</div>
-          <div class="pub-title">Exploring Feasibility of Wrist Gestures for Non-Visual Interaction with Wearables</div>
+          <div class="pub-title"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/pmc8319857/" target="_blank" rel="noopener">Exploring Feasibility of Wrist Gestures for Non-Visual Interaction with Wearables</a></div>
           <div class="pub-authors"><strong>Shirin Feiz</strong>, IV Ramakrishnan</div>
         </div>
       </div>
@@ -429,7 +429,6 @@
           <div class="skill-tags">
             <span class="tag">Python</span>
             <span class="tag">C++</span>
-            <span class="tag">PyTorch</span>
             <span class="tag">Deep Learning</span>
             <span class="tag">React / Web</span>
             <span class="tag">iOS / Swift</span>
@@ -449,8 +448,7 @@
     <h2>Recognition</h2>
     <div>
       <div class="award"><div class="award-year">2019</div><div class="award-text">Intuit Student Travel Grant Award</div></div>
-      <div class="award"><div class="award-year">2019</div><div class="award-text">Best Poster — Vision, Graphics &amp; HCI, Graduate Research Day, Stony Brook University</div></div>
-      <div class="award"><div class="award-year">2017</div><div class="award-text">Merits Fellowship Award, Stony Brook University ($5,000)</div></div>
+      <div class="award"><div class="award-year">2017</div><div class="award-text">Merits Fellowship Award, Stony Brook University</div></div>
       <div class="award"><div class="award-year">2016</div><div class="award-text">Ranked 3rd Among M.Sc. Graduates in AI, Sharif University of Technology</div></div>
       <div class="award"><div class="award-year">2014</div><div class="award-text">Honorary Admission to Sharif University of Technology M.Sc. (top 8 in the nation)</div></div>
       <div class="award"><div class="award-year">2014</div><div class="award-text">Distinguished Graduate of the Year Across All Disciplines, Ferdowsi University</div></div>
@@ -475,7 +473,7 @@
         </div>
         <div class="contact-item">
           <div class="contact-item-label">LinkedIn</div>
-          <a href="https://www.linkedin.com/in/shirin-feiz-a17a2333/" target="_blank" rel="noopener">linkedin.com/in/shirin-feiz</a>
+          <a href="https://www.linkedin.com/in/shirinfeiz/" target="_blank" rel="noopener">linkedin.com/in/shirinfeiz</a>
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Google Scholar</div>
@@ -494,7 +492,6 @@
   // Bot-safe email assembly
   var e = atob('c2hpcmluLmZlaXouZEBnbWFpbC5jb20=');
   document.getElementById('hero-email').href = 'mailto:' + e;
-  document.getElementById('hero-cta').href = 'mailto:' + e;
   document.getElementById('contact-email').href = 'mailto:' + e;
 
   // Photo fallback
